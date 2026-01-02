@@ -1,0 +1,38 @@
+{
+  "name": "github-pinned-repo-sdk",
+  "version": "1.0.0",
+  "description": "SDK to simply fetch a GitHub user's pinned repositories and general data.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "test": "vitest",
+    "test:ui": "vitest --ui",
+    "prepublishOnly": "npm run build && npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "github.com/luisoos/github-pinned-repo-sdk"
+  },
+  "keywords": [
+    "github",
+    "api",
+    "github-api",
+    "github-sdk",
+    "pinned-repositories",
+    "pinned-repos"
+  ],
+  "type": "module",
+  "author": "luisoos",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^25.0.3",
+    "@vitest/ui": "^4.0.16",
+    "jsdom": "^27.4.0",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.16"
+  }
+}
