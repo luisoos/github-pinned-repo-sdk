@@ -17,14 +17,14 @@ npm i github-pinned-repo-sdk
 yarn add github-pinned-repo-sdk
 ```
 
-#### Usage
+## 📖 Usage
 ```ts
 import { getPinnedRepos } from 'github-pinned-repo-sdk';
 
 const data = await getPinnedRepos('sindresorhus');
 ```
 
-##### TypeScript
+#### TypeScript
 Define types: 
 ```ts
 import { getPinnedRepos } from 'github-pinned-repo-sdk';
@@ -38,13 +38,47 @@ type ApiResponse = {
 const data: ApiResponse = await getPinnedRepos('sindresorhus');
 ```
 
-### Testing
+## 🧪 Testing
 Run tests using vitest:
 ```bash
 npm test
 ```
 
-#### In node console
+### In node console
 ```bash
 node -e "import('./dist/index.js').then(async m=>{const {JSDOM}=await import('jsdom');global.DOMParser=new JSDOM().window.DOMParser;const data=await m.getPinnedRepos('luisoos');console.log(data)})"
 ```
+
+## 🌐 Astro Example
+
+```astro
+--- 
+import { getPinnedRepos } from 'github-pinned-repo-sdk';
+const { user, pinned_repos } = await getPinnedRepos('torvalds');
+***
+<h1>{user.login}</h1>
+<ul>
+  {pinned_repos.map(repo => (
+    <li>
+      <a href={repo.link}>{repo.repo}</a> 
+      <span>⭐ {repo.stars.toLocaleString()}</span>
+    </li>
+  ))}
+</ul>
+```
+
+## 📦 Features
+
+- ✅ **No dependencies** (pure `fetch` + `DOMParser`)
+- ✅ **Full TypeScript** (IntelliSense ready)
+- ✅ **Browser + Node** compatible
+- ✅ **GitHub API** + HTML scraping hybrid
+- ✅ **Rate-limit safe** (User-Agent headers)
+
+## 🙌 Credits
+
+Inspired by [better-github-api](https://github.com/luisoos/better-github-api)
+
+## 📄 License
+
+MIT © [luisoos](https://github.com/luisoos)
