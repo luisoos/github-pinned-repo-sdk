@@ -79,7 +79,7 @@ export async function getPinnedRepos(username: string): Promise<{
     const language = langEl ? langEl.textContent?.trim() || undefined : undefined;
     
     const langColorEl = elem.querySelector('.repo-language-color');
-    const languageColor = langColorEl ? langColorEl.getAttribute('style')?.match(/background-color:\s*(.+?);/)?.[1] || undefined : undefined;
+    const languageColor = langColorEl ? langColorEl.getAttribute('style')?.match(/background-color:\s*([^;]+)/)?.[1] || undefined : undefined;
     
     const starsEl = elem.querySelector('a[href$="/stargazers"]');
     const stars = starsEl ? parseInt(starsEl.textContent?.trim() || '0', 10) : 0;
