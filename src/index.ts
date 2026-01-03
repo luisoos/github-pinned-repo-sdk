@@ -1,4 +1,4 @@
-type GithubUser = {
+export type GithubUser = {
   login: string;
   id: number;
   avatar_url: string;
@@ -12,7 +12,7 @@ type Data = {
   [key: string | number | symbol]: any;
 };
 
-type PinnedRepo = {
+export type PinnedRepo = {
   owner: string;
   repo: string;
   internal_link?: string;

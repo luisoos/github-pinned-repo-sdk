@@ -27,7 +27,7 @@ const data = await getPinnedRepos('sindresorhus');
 #### TypeScript
 Define types: 
 ```ts
-import { getPinnedRepos } from 'github-pinned-repo-sdk';
+import { getPinnedRepos, type PinnedRepo, type GithubUser } from 'github-pinned-repo-sdk';
 
 type ApiResponse = {
   user: GithubUser;
