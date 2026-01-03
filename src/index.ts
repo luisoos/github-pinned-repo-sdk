@@ -1,3 +1,5 @@
+import { JSDOM } from 'jsdom';
+
 export type GithubUser = {
   login: string;
   id: number;
@@ -49,8 +51,8 @@ export async function getPinnedRepos(username: string): Promise<{
   }
   
   const html = await pageResponse.text();
-  const parser = new DOMParser();
-  const doc = parser.parseFromString(html, 'text/html');
+  const dom = new JSDOM(html);
+  const doc = dom.window.document;
   
   const pinnedItems = doc.querySelectorAll('.js-pinned-items-reorder-container > ol > li');
   const pinnedRepositories: PinnedRepo[] = [];

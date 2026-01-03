@@ -46,7 +46,7 @@ npm test
 
 ### In node console
 ```bash
-node -e "import('./dist/index.js').then(async m=>{const {JSDOM}=await import('jsdom');global.DOMParser=new JSDOM().window.DOMParser;const data=await m.getPinnedRepos('luisoos');console.log(data)})"
+node -e "import('./dist/index.js').then(m => m.getPinnedRepos('luisoos').then(console.log))"
 ```
 
 ## 🌐 Astro Example
@@ -69,9 +69,10 @@ const { user, pinned_repos } = await getPinnedRepos('torvalds');
 
 ## 📦 Features
 
-- ✅ **No dependencies** (pure `fetch` + `DOMParser`)
+- ✅ **Extremely Lightweight** (pure `fetch` + `jsdom`)
+- ✅ **Robust Parsing** (uses `jsdom` for reliable scraping)
 - ✅ **Full TypeScript** (IntelliSense ready)
-- ✅ **Browser + Node** compatible
+- ✅ **Node.js & SSR** optimized (perfect for Astro/Next.js)
 - ✅ **GitHub API** + HTML scraping hybrid
 - ✅ **Rate-limit safe** (User-Agent headers)
 
